@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className="hover:text-[#F6F1E7] transition-colors"
           >
-            Book a 20 minute call
+            Book a 30 minute call
           </a>
           <span className="text-[#F6F1E7]/30">·</span>
           <a

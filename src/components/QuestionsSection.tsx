@@ -30,7 +30,7 @@ const FAQS: FAQItem[] = [
   {
     question: 'How do we start?',
     answer:
-      'Book a 20 minute call using the booking link on this page so we can talk through your business and plan your setup.',
+      'Book a 30 minute call using the booking link on this page so we can talk through your business and plan your setup.',
   },
 ];
 

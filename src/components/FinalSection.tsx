@@ -34,7 +34,7 @@ export const FinalSection: React.FC = () => {
             variant="accent"
             className="text-lg px-8 py-4"
           >
-            Book a 20 minute call
+            Book a 30 minute call
           </MagneticButton>
         </div>
 

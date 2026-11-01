@@ -18,6 +18,23 @@ export const RichImagePanel: React.FC<RichImagePanelProps> = ({
 }) => {
   const [loaded, setLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [currentSrcIndex, setCurrentSrcIndex] = useState(0);
+
+  // Generate source candidates based on input src
+  const fileName = src.split('/').pop() || '';
+  const sources = [
+    src.startsWith('/PICTURES/') ? src : `/PICTURES/${fileName}`,
+    `/pictures/${fileName}`,
+    `/${fileName}`,
+  ];
+
+  const handleImageError = () => {
+    if (currentSrcIndex < sources.length - 1) {
+      setCurrentSrcIndex(currentSrcIndex + 1);
+    } else {
+      setHasError(true);
+    }
+  };
 
   // An SVG film grain overlay filter
   const grainOverlay = (
@@ -51,14 +68,14 @@ export const RichImagePanel: React.FC<RichImagePanelProps> = ({
         className="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full bg-[#0F6B6B]/25 blur-3xl"
       />
 
-      {/* Actual image tag if available */}
+      {/* Actual image tag */}
       {!hasError && (
         <img
-          src={src}
+          src={sources[currentSrcIndex]}
           alt={alt}
           referrerPolicy="no-referrer"
           onLoad={() => setLoaded(true)}
-          onError={() => setHasError(true)}
+          onError={handleImageError}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
             loaded ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}

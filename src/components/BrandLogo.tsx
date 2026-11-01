@@ -8,12 +8,23 @@ interface BrandLogoProps {
 export const BrandLogo: React.FC<BrandLogoProps> = ({ onInk = false, className = '' }) => {
   const [imgError, setImgError] = useState(false);
 
+  const [srcIndex, setSrcIndex] = useState(0);
+  const sources = ['/PICTURES/logo.png', '/pictures/logo.png', '/logo.png'];
+
+  const handleImgError = () => {
+    if (srcIndex < sources.length - 1) {
+      setSrcIndex(srcIndex + 1);
+    } else {
+      setImgError(true);
+    }
+  };
+
   const logoGraphic = !imgError ? (
     <img
-      src="/logo.png"
+      src={sources[srcIndex]}
       alt="Wood & Quote logo"
-      onError={() => setImgError(true)}
-      className="h-7 w-auto object-contain max-w-[140px]"
+      onError={handleImgError}
+      className="h-8 w-auto object-contain max-w-[160px]"
     />
   ) : (
     <span className="flex items-center gap-2 font-serif text-lg tracking-tight font-semibold text-[#14161A]">

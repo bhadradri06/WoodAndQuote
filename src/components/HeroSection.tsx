@@ -74,7 +74,7 @@ export const HeroSection: React.FC = () => {
             I build a one page site where your beds are shown with wood choices and a price range, plus a short form that takes the customer's name, phone and the design they liked, with a small tool behind it that works out the wood and a money estimate for any bed you type in.
           </motion.p>
 
-          {/* CTAs: Book a 20 minute call & WhatsApp */}
+          {/* CTAs: Book a 30 minute call & WhatsApp */}
           <motion.div
             initial={shouldReduceMotion ? {} : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export const HeroSection: React.FC = () => {
               variant="accent"
               className="w-full sm:w-auto text-center"
             >
-              Book a 20 minute call
+              Book a 30 minute call
             </MagneticButton>
 
             <a
@@ -119,7 +119,7 @@ export const HeroSection: React.FC = () => {
             {/* Arch frame: rounded top, square bottom */}
             <div className="w-full aspect-[4/5.4]">
               <RichImagePanel
-                src="/me.jpg"
+                src="/PICTURES/me.jpg"
                 alt="Bhadra Kommu, founder of Wood & Quote"
                 label="BK"
                 arch={true}

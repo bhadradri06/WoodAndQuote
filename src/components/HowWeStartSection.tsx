@@ -20,7 +20,7 @@ export const HowWeStartSection: React.FC = () => {
   const steps = [
     {
       num: '1',
-      title: 'A 20 minute call',
+      title: 'A 30 minute call',
       description:
         'We talk through your furniture shop, corporate office, or project work, the beds you offer, and the wood choices your customers ask for.',
     },

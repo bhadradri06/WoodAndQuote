@@ -36,7 +36,7 @@ export const MobileBottomBar: React.FC = () => {
             rel="noopener noreferrer"
             className="w-full h-11 flex items-center justify-center bg-[#8B5E3C] text-[#14161A] font-semibold text-sm rounded-full shadow-xs active:scale-[0.98] transition-transform"
           >
-            Book a 20 minute call
+            Book a 30 minute call
           </a>
         </motion.div>
       )}

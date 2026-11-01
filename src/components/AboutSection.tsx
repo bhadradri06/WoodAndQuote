@@ -4,6 +4,16 @@ import { MagneticButton } from './MagneticButton.tsx';
 
 export const AboutSection: React.FC = () => {
   const [photoError, setPhotoError] = useState(false);
+  const [photoSrcIndex, setPhotoSrcIndex] = useState(0);
+  const photoSources = ['/PICTURES/me.jpg', '/pictures/me.jpg', '/me.jpg'];
+
+  const handlePhotoError = () => {
+    if (photoSrcIndex < photoSources.length - 1) {
+      setPhotoSrcIndex(photoSrcIndex + 1);
+    } else {
+      setPhotoError(true);
+    }
+  };
 
   return (
     <section id="about" className="py-24 sm:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
@@ -14,10 +24,10 @@ export const AboutSection: React.FC = () => {
           <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 border-2 border-[#8B5E3C]/30 bg-gradient-to-br from-[#14161A] to-[#8B5E3C] flex items-center justify-center">
             {!photoError ? (
               <img
-                src="/me.jpg"
+                src={photoSources[photoSrcIndex]}
                 alt="Bhadra Kommu"
                 referrerPolicy="no-referrer"
-                onError={() => setPhotoError(true)}
+                onError={handlePhotoError}
                 className="w-full h-full object-cover"
               />
             ) : null}
@@ -73,7 +83,7 @@ export const AboutSection: React.FC = () => {
               href={BRAND_DETAILS.bookingLink}
               variant="accent"
             >
-              Book a 20 minute call with Bhadra
+              Book a 30 minute call with Bhadra
             </MagneticButton>
           </div>
         </div>
