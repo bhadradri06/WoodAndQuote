@@ -23,10 +23,12 @@ export const RichImagePanel: React.FC<RichImagePanelProps> = ({
   // Generate source candidates based on input src
   const fileName = src.split('/').pop() || '';
   const sources = [
-    src.startsWith('/PICTURES/') ? src : `/PICTURES/${fileName}`,
+    src,
+    `/assets/aistudio/${fileName}`,
+    `/PICTURES/${fileName}`,
     `/pictures/${fileName}`,
     `/${fileName}`,
-  ];
+  ].filter((v, i, a) => a.indexOf(v) === i);
 
   const handleImageError = () => {
     if (currentSrcIndex < sources.length - 1) {

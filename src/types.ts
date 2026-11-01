@@ -19,4 +19,11 @@ export const BRAND_DETAILS = {
     cream: "#F6F1E7",
     ink: "#14161A",
   },
+  images: {
+    logo: "/assets/aistudio/logo_cf9b203c.jpg",
+    me: "/assets/aistudio/me_a702c50c.png",
+    work1: "/assets/aistudio/work-1_cb0ee756.jpg",
+    work2: "/assets/aistudio/work-2_bafbc6af.jpg",
+    work3: "/assets/aistudio/work-3_ef9a4b92.jpg",
+  },
 } as const;

@@ -23,7 +23,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+      className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 lg:pt-44 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
     >
       <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-16 items-center">
         {/* Left Column: Copy & Actions */}
@@ -108,36 +108,43 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Right Column: Arch Photo Frame */}
-        <div className="lg:col-span-5 w-full flex justify-center">
+        <div className="lg:col-span-5 w-full flex justify-center pb-6 sm:pb-0">
           <motion.div
             style={{ y: archY }}
-            initial={shouldReduceMotion ? {} : { clipPath: 'inset(100% 0% 0% 0%)' }}
-            animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px]"
           >
-            {/* Arch frame: rounded top, square bottom */}
-            <div className="w-full aspect-[4/5.4]">
+            {/* Arch frame with entry clip-wipe on the photo only */}
+            <motion.div
+              initial={shouldReduceMotion ? {} : { clipPath: 'inset(100% 0% 0% 0%)' }}
+              animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full aspect-[4/5.4] rounded-t-[140px] sm:rounded-t-[180px] lg:rounded-t-[220px] rounded-b-none overflow-hidden"
+            >
               <RichImagePanel
-                src="/PICTURES/me.jpg"
+                src={BRAND_DETAILS.images.me}
                 alt="Bhadra Kommu, founder of Wood & Quote"
                 label="BK"
                 arch={true}
                 className="w-full h-full border border-[#14161A]/10"
               />
-            </div>
+            </motion.div>
 
-            {/* Floating corner card */}
+            {/* Floating corner card - placed outside clipPath so it is fully visible and never cut off */}
             <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.92, y: 10 }}
+              initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.92, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -bottom-5 right-2 sm:right-[-12px] z-20 bg-[#F6F1E7] border border-[#14161A]/12 rounded-2xl px-4 py-3 shadow-md backdrop-blur-xs flex items-center gap-3"
+              transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute bottom-3 right-3 sm:-bottom-4 sm:-right-4 z-30 bg-white/95 border-2 border-[#14161A]/15 rounded-2xl px-5 py-3.5 shadow-xl backdrop-blur-md flex items-center gap-3.5 max-w-[calc(100%-1.5rem)]"
             >
-              <div className="w-2.5 h-2.5 rounded-full bg-[#8B5E3C]" />
-              <p className="text-xs sm:text-sm font-medium text-[#14161A] tracking-tight">
-                Bhadra Kommu, founder of Wood &amp; Quote
-              </p>
+              <div className="w-3.5 h-3.5 rounded-full bg-[#8B5E3C] ring-4 ring-[#8B5E3C]/25 shrink-0" />
+              <div>
+                <span className="block font-serif text-lg sm:text-xl font-bold text-[#14161A] leading-tight">
+                  Bhadra Kommu
+                </span>
+                <span className="block text-xs sm:text-sm font-semibold text-[#0F6B6B] tracking-tight mt-0.5 whitespace-nowrap">
+                  Founder of Wood &amp; Quote
+                </span>
+              </div>
             </motion.div>
           </motion.div>
         </div>

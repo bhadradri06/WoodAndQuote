@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
         {/* Left: Logo on cream panel & City */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <BrandLogo onInk={true} />
+          <BrandLogo onInk={true} size="lg" />
           <span className="text-sm text-[#F6F1E7]/60 font-sans">
             {BRAND_DETAILS.city}
           </span>

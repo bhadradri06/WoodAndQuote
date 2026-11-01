@@ -5,7 +5,13 @@ import { MagneticButton } from './MagneticButton.tsx';
 export const AboutSection: React.FC = () => {
   const [photoError, setPhotoError] = useState(false);
   const [photoSrcIndex, setPhotoSrcIndex] = useState(0);
-  const photoSources = ['/PICTURES/me.jpg', '/pictures/me.jpg', '/me.jpg'];
+  const photoSources = [
+    BRAND_DETAILS.images.me,
+    '/assets/aistudio/me_a702c50c.png',
+    '/PICTURES/me.jpg',
+    '/pictures/me.jpg',
+    '/me.jpg',
+  ];
 
   const handlePhotoError = () => {
     if (photoSrcIndex < photoSources.length - 1) {
@@ -74,8 +80,8 @@ export const AboutSection: React.FC = () => {
           >
             Bhadra
           </p>
-          <p className="text-xs text-[#14161A]/60 font-sans mt-1">
-            Founder of Wood &amp; Quote · Hyderabad
+          <p className="text-sm sm:text-base font-semibold text-[#14161A] font-sans mt-1.5">
+            Bhadra Kommu · Founder of Wood &amp; Quote
           </p>
 
           <div className="mt-8">

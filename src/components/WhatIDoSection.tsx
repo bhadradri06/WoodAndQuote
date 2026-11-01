@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
+import { BRAND_DETAILS } from '../types.ts';
 import { RichImagePanel } from './RichImagePanel.tsx';
 
 interface CardData {
@@ -14,21 +15,21 @@ const CARDS: CardData[] = [
   {
     number: '01',
     title: 'The Bed Showcase & Wood Choices',
-    imgSrc: '/PICTURES/work-1.jpg',
+    imgSrc: BRAND_DETAILS.images.work1,
     today: 'Your customers ask what wood you use and how much each bed costs, leaving you to repeat the details in messages.',
     withWQ: 'Your beds are shown with wood choices and a price range, so buyers understand the timber and price before they contact you.',
   },
   {
     number: '02',
     title: 'The Customer Inquiry Form',
-    imgSrc: '/PICTURES/work-2.jpg',
+    imgSrc: BRAND_DETAILS.images.work2,
     today: 'Buyer requests arrive across phone calls and chat threads without the exact bed design or wood choice noted.',
     withWQ: 'A short form takes the customer\'s name, phone and the design they liked, giving you everything needed to respond.',
   },
   {
     number: '03',
     title: 'The Wood & Money Estimate Tool',
-    imgSrc: '/PICTURES/work-3.jpg',
+    imgSrc: BRAND_DETAILS.images.work3,
     today: 'Working out timber quantities and pricing for custom bed designs takes manual calculation after your shop closes.',
     withWQ: 'Behind the site sits a small tool that works out the wood and a money estimate for any bed you type in.',
   },

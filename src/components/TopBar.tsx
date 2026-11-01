@@ -56,10 +56,10 @@ export const TopBar: React.FC<TopBarProps> = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${barStyles}`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-22 sm:h-24 md:h-26 flex items-center justify-between gap-6">
         {/* Zone 1: Logo */}
         <a href="#" className="flex items-center shrink-0">
-          <BrandLogo onInk={!isAtHeroTop && isOverInk} />
+          <BrandLogo onInk={!isAtHeroTop && isOverInk} size="lg" />
         </a>
 
         {/* Zone 2: Navigation Links */}

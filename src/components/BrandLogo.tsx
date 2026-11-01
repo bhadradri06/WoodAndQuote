@@ -3,13 +3,23 @@ import React, { useState } from 'react';
 interface BrandLogoProps {
   onInk?: boolean;
   className?: string;
+  size?: 'sm' | 'md' | 'lg';
 }
 
-export const BrandLogo: React.FC<BrandLogoProps> = ({ onInk = false, className = '' }) => {
+export const BrandLogo: React.FC<BrandLogoProps> = ({
+  onInk = false,
+  className = '',
+  size = 'lg',
+}) => {
   const [imgError, setImgError] = useState(false);
-
   const [srcIndex, setSrcIndex] = useState(0);
-  const sources = ['/PICTURES/logo.png', '/pictures/logo.png', '/logo.png'];
+
+  const sources = [
+    '/PICTURES/logo.png',
+    '/logo.png',
+    '/pictures/logo.png',
+    '/assets/aistudio/logo.png',
+  ];
 
   const handleImgError = () => {
     if (srcIndex < sources.length - 1) {
@@ -19,32 +29,40 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ onInk = false, className =
     }
   };
 
+  const sizeClasses = {
+    sm: 'h-9 sm:h-11 max-w-[220px]',
+    md: 'h-11 sm:h-13 max-w-[280px]',
+    lg: 'h-12 sm:h-15 md:h-16 lg:h-18 max-w-[290px] sm:max-w-[360px] md:max-w-[400px]',
+  }[size];
+
   const logoGraphic = !imgError ? (
     <img
       src={sources[srcIndex]}
-      alt="Wood & Quote logo"
+      alt="Wood & Quote logo - Handcrafted wood bed with price quote tag"
       onError={handleImgError}
-      className="h-8 w-auto object-contain max-w-[160px]"
+      className={`${sizeClasses} w-auto object-contain transition-transform duration-200 hover:scale-[1.02] filter contrast-[1.04]`}
     />
   ) : (
-    <span className="flex items-center gap-2 font-serif text-lg tracking-tight font-semibold text-[#14161A]">
-      <span className="w-5 h-5 rounded-md bg-[#0F6B6B] text-[#F6F1E7] inline-flex items-center justify-center text-xs font-serif italic font-bold">
+    <span className="flex items-center gap-3 font-serif text-xl tracking-tight font-semibold text-[#14161A]">
+      <span className="w-8 h-8 rounded-lg bg-[#0F6B6B] text-[#F6F1E7] inline-flex items-center justify-center text-sm font-serif italic font-bold shadow-xs">
         W
       </span>
-      <span>Wood & Quote</span>
+      <span>Wood &amp; Quote</span>
     </span>
   );
 
   if (onInk) {
     return (
-      <div className={`inline-flex items-center px-3 py-1.5 rounded-xl bg-[#F6F1E7] shadow-sm border border-[#F6F1E7]/20 ${className}`}>
+      <div
+        className={`inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl bg-[#F6F1E7] shadow-md border border-[#14161A]/10 ${className}`}
+      >
         {logoGraphic}
       </div>
     );
   }
 
   return (
-    <div className={`inline-flex items-center ${className}`}>
+    <div className={`inline-flex items-center py-1 ${className}`}>
       {logoGraphic}
     </div>
   );
