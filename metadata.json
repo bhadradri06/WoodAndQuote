@@ -1,0 +1,6 @@
+{
+  "name": "Wood & Quote",
+  "description": "Know the wood. Know the price. One-page catalog and price estimate setup for furniture shops, corporate offices, and individuals in Hyderabad by Bhadra Kommu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,22 @@
+export const BRAND_DETAILS = {
+  name: "Bhadra Kommu",
+  businessName: "Wood & Quote",
+  audience: "Furniture shops, corporate office and Individuals as well",
+  city: "Hyderabad",
+  promise: "Know the wood. Know the price.",
+  whatISetUp: "You build a one page site where his beds are shown with wood choices and a price range, plus a short form that takes the customer's name, phone and the design he liked. Behind it sits a small tool that works out the wood and a money estimate for any bed he types in.",
+  price: "Rs 25,000 setup + Rs 5,000 a month",
+  bookingLink: "https://cal.com/bhadra9626-kommu-t3fdfw/30min",
+  whatsappNumber: "918143501435",
+  whatsappUrl: "https://wa.me/918143501435",
+  email: "bhadradri06@gmail.com",
+  emailUrl: "mailto:bhadradri06@gmail.com",
+  aboutMe: "I am IT professional with 15 years of experience in IT and working as associate architect at technology",
+  colors: {
+    teal: "#0F6B6B",
+    walnut: "#8B5E3C",
+    slate: "#23262B",
+    cream: "#F6F1E7",
+    ink: "#14161A",
+  },
+} as const;
