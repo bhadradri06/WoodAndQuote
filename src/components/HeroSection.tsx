@@ -125,6 +125,7 @@ export const HeroSection: React.FC = () => {
                 alt="Bhadra Kommu, founder of Wood & Quote"
                 label="BK"
                 arch={true}
+                objectPosition="object-center"
                 className="w-full h-full border border-[#14161A]/10"
               />
             </motion.div>

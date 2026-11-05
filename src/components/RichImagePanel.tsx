@@ -7,6 +7,9 @@ interface RichImagePanelProps {
   className?: string;
   arch?: boolean;
   priority?: boolean;
+  objectFit?: 'cover' | 'contain';
+  objectPosition?: string;
+  imageClassName?: string;
 }
 
 export const RichImagePanel: React.FC<RichImagePanelProps> = ({
@@ -15,6 +18,9 @@ export const RichImagePanel: React.FC<RichImagePanelProps> = ({
   label,
   className = '',
   arch = false,
+  objectFit = 'cover',
+  objectPosition = 'object-top',
+  imageClassName = '',
 }) => {
   const [loaded, setLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -78,9 +84,11 @@ export const RichImagePanel: React.FC<RichImagePanelProps> = ({
           referrerPolicy="no-referrer"
           onLoad={() => setLoaded(true)}
           onError={handleImageError}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+          className={`absolute inset-0 h-full w-full ${objectPosition} ${
+            objectFit === 'contain' ? 'object-contain' : 'object-cover'
+          } transition-opacity duration-700 ${
             loaded ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
+          } ${imageClassName}`}
         />
       )}
 
